@@ -1,0 +1,64 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- affirm
+- when
+- what
+- location
+- phone_number
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- list_bookings
+- book
+entities:
+- date
+- products
+- phone_number
+- location
+slots:
+  date:
+    type: text
+  phone_number:
+    type: text
+  location:
+    type: text
+  products:
+    type: text
+responses:
+  utter_greet:
+  - text: Hello, I'm a covid helper bot! Do you want to book a volunteer visit?
+  utter_when:
+  - text: Which day do you want our volunteer to come?
+  utter_what:
+    - text: What kind of products do you need? (you can choose between groceries/medicaments or both)
+  utter_location:
+    - text: What is your home address?
+  utter_phone_number:
+    - text: What is your phone number?
+  utter_thank_you:
+    - text: Thank you!
+  utter_find_booking:
+    - text: Please send me your phone number you provided when booking.
+  utter_goodbye:
+  - text: Bye
+  utter_sorry:
+    - text: I'm sorry but as for now I can only book you a volunteer visit or list active bookings, but there will be more available options soon.
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+actions:
+- utter_greet
+- utter_goodbye
+- utter_when
+- utter_what
+- utter_location
+- utter_phone_number
+- utter_thank_you
+- utter_find_booking
+- action_submit_booking
+- action_make_booking
+- action_list_active_bookings
