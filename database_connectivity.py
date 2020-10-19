@@ -44,12 +44,10 @@ def ListActiveBookings(phone_number):
         sql_parameterized_query =\
             "select b_date from bookings where c_phone_number = %s and b_date >= %s"
         cursor.execute(sql_parameterized_query, (phone_number, today))
-        # for row in cursor:
-        #     bookings_list.append(row)
 
         bookings_list = [row[0] for row in cursor.fetchall()]
-    except Exception as ex:
-        print("Exception Occurred", ex)
+    except Exception as e:
+        print("exception raised", e)
     finally:
         if connection is not None:
             connection.close()
